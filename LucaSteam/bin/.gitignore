@@ -1,6 +1,5 @@
 /control/
+/log4j2.xml
 /model/
-/datos/
 /gui/
-/servicios/
 /utilidades/
