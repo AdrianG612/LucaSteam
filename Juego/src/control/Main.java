@@ -6,7 +6,7 @@ public class Main {
 
 		System.out.println("Editado por Adrian");
 		System.out.println("Prueba Daniel");
-		
+		System.out.println("Prueba2 Daniel");
 	}
 
 }
