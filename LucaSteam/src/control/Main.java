@@ -3,7 +3,7 @@ package control;
 public class Main {
 
 	public static void main(String[] args) {
-		System.out.println("Rama Daniel");
+		System.out.println("Rama Master");
 
 	}
 
