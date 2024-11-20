@@ -2,12 +2,19 @@ package control;
 
 import gui.Menu;
 import utilidades.LeerTeclado;
+<<<<<<< HEAD:LucaSteamJunto/src/control/Start.java
 import servicios.ServiciosJuegos;
 import servicios.ServiciosJuegosImp;
 
 public class Start {
 	
 	ServiciosJuegos servicioJuego = new ServiciosJuegosImp();
+=======
+
+public class Start {
+	
+	ServiciosJuegos servicioJuego = new ServicioJuego();
+>>>>>>> a8040d31717cbb48770dbf8aef263c075aad67e1:LucaSteam/src/control/Start.java
 
 	public void comenzar()
 	{
