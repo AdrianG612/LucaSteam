@@ -32,4 +32,13 @@ public enum Plataforma {
 		return nombre;
 	}
 	
+	
+	public static Plataforma asignarEnumDesdeString(String plataformaCSV) {
+		for(Plataforma p:Plataforma.values()) 
+			if(p.name().equalsIgnoreCase(plataformaCSV)) 
+				return p;
+			
+		return null;
+	}
+	
 }

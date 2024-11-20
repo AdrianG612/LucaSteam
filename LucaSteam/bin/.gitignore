@@ -1,6 +1,5 @@
-/control/
-/model/
-/datos/
-/gui/
 /servicios/
+/vgsales.csv
+/model/
+/control/
 /utilidades/
