@@ -55,7 +55,7 @@ public class JuegosImp implements Juegos{
 	    for (Editor editor : editores) {
 	    	//comprobar si esta en la lista
 	        if (editor.getNombre().equalsIgnoreCase(nombre))
-	            return true;
+	        return true;
 	    }
 	    return false;
 	}
@@ -84,6 +84,7 @@ public class JuegosImp implements Juegos{
 	     }
 	     // Comprobar si el editor ya existe
 	     if (editorExiste(e)) {
+	    	 logger.warn("El editor ya está añadido.");
 	    	 return false;
 	     }
 	     // Agregar el editor a la lista
@@ -103,7 +104,7 @@ public class JuegosImp implements Juegos{
 		//comprobar si esta en la lista
 		for (Juego juego : juegos) {
 			if (juego.getNombre().equalsIgnoreCase(nombre))
-				return true;
+			return true;
 		}
 		return false;
 	}
@@ -144,7 +145,17 @@ public class JuegosImp implements Juegos{
 	
 	@Override
 	public String toString() {
-		return "Juegos [juegos=" + juegos + ", editores=" + editores + "]";
+		if (juegos.isEmpty()) {
+			logger.info("No hay juegos registrados.");
+	        return "No hay juegos registrados.";
+	    }
+	    String lista="JUEGOS:\n";
+	    int contador = 1;
+	    for (Juego j : juegos) {
+	        lista+=contador+".- "+j.getNombre()+", "+j.getPlataforma()+", "+j.getAnyo()+", "+j.getGenero()+", "+j.getEditor()+".";
+	        contador++;
+	    }
+	    return lista;
 	}
 
 	@Override
@@ -152,7 +163,5 @@ public class JuegosImp implements Juegos{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
 	
 }
