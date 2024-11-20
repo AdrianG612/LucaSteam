@@ -8,7 +8,6 @@ import utilidades.LeerTeclado;
 
 public class Formulario {
 	
-	private int rango;
 	private String nombre;
 	private Plataforma plataforma;
 	private int anyo;
@@ -81,8 +80,7 @@ public class Formulario {
 		String edi = LeerTeclado.leerLinea();
 			
 		Editor editor = new Editor(edi);
-				
-				
+					
 		Juego juego = new Juego(nombre, plataforma, anyo, genero, editor);
 		
 		return juego;

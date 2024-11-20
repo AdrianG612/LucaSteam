@@ -11,7 +11,7 @@ import model.Juego;
 
 public class JuegosImp implements Juegos{
 	
-	private static Logger logger = LogManager.getLogger(JuegosImp.class);
+	private static Logger logger = LogManager.getLogger(DatosJuegosImpTest.class);
 	
 	private List<Juego> juegos=new ArrayList();
 	private List<Editor> editores=new ArrayList();
@@ -56,7 +56,7 @@ public class JuegosImp implements Juegos{
 	    for (Editor editor : editores) {
 	    	//comprobar si esta en la lista
 	        if (editor.getNombre().equalsIgnoreCase(nombre))
-	            return true;
+	        return true;
 	    }
 	    return false;
 	}
@@ -85,6 +85,7 @@ public class JuegosImp implements Juegos{
 	     }
 	     // Comprobar si el editor ya existe
 	     if (editorExiste(e)) {
+	    	 logger.warn("El editor ya está añadido.");
 	    	 return false;
 	     }
 	     // Agregar el editor a la lista
@@ -104,8 +105,12 @@ public class JuegosImp implements Juegos{
 		//comprobar si esta en la lista
 		for (Juego juego : juegos) {
 			if (juego.getNombre().equalsIgnoreCase(nombre))
-				return true;
+			return true;
 		}
+<<<<<<< HEAD
+		
+=======
+>>>>>>> origin/daniel
 		return false;
 	}
 	
@@ -126,6 +131,8 @@ public class JuegosImp implements Juegos{
 
 	@Override
 	public boolean addJuego(Juego j) {
+<<<<<<< HEAD
+=======
 		//comprobar juego y nombre del juego no nulos 
 		if (j == null || j.getNombre() == null || j.getNombre().isEmpty()) {
             logger.warn("No se puede añadir un juego nulo o con nombre vacío.");
@@ -137,6 +144,7 @@ public class JuegosImp implements Juegos{
             return false;
         }
         //agregar j a la lista de juegos
+>>>>>>> origin/daniel
         juegos.add(j);
         return true;
 	}
@@ -145,10 +153,25 @@ public class JuegosImp implements Juegos{
 	
 	@Override
 	public String toString() {
-		return "Juegos [juegos=" + juegos + ", editores=" + editores + "]";
+		if (juegos.isEmpty()) {
+			logger.info("No hay juegos registrados.");
+	        return "No hay juegos registrados.";
+	    }
+	    String lista="JUEGOS:\n";
+	    int contador = 1;
+	    for (Juego j : juegos) {
+	        lista+=contador+".- "+j.getNombre()+", "+j.getPlataforma()+", "+j.getAnyo()+", "+j.getGenero()+", "+j.getEditor()+".";
+	        contador++;
+	    }
+	    return lista;
 	}
 
 	@Override
+<<<<<<< HEAD
+	public List<Juego> filtrarGeneroPlataforma() {
+		// TODO Auto-generated method stub
+		return null;
+=======
 	public List<Juego> filtrarGenero(Genero genero) {
 		List<Juego> listaFiltrada = new ArrayList<Juego>();
 		if (genero != null) {
@@ -164,8 +187,7 @@ public class JuegosImp implements Juegos{
 		}
 		
 		return listaFiltrada;
+>>>>>>> origin/daniel
 	}
-
-	
 	
 }
