@@ -1,5 +1,8 @@
 package control;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import gui.Formulario;
 import gui.Menu;
 import model.Juego;
@@ -8,6 +11,8 @@ import servicios.ServiciosJuegos;
 import servicios.ServiciosJuegosImp;
 
 public class Start {
+	
+	private static Logger logger = LogManager.getLogger(Formulario.class);
 	
 	ServiciosJuegos servicioJuego = new ServiciosJuegosImp();
 
@@ -39,7 +44,7 @@ public class Start {
 				System.out.println("Se han cargado los juegos coorectamente");
 			}
 			else
-				System.out.println("Se no se han podido cargar los usuarios correctamente");
+				logger.warn("Se no se han podido cargar los usuarios correctamente");
 				
 			break;
 
@@ -59,7 +64,7 @@ public class Start {
 				System.out.println("Se han cargado los juegos correctamente desde el fichero en los datos");
 			}
 			else
-				System.out.println("Se no se han podido cargar los usuarios correctamente desde el fichero en los datos");
+				logger.warn("Se no se han podido cargar los usuarios correctamente desde el fichero en los datos");
 			
 			break;
 
@@ -74,20 +79,29 @@ public class Start {
 				System.out.println("Se han filtrado por plataforma de forma correcta");
 			}
 			else
-				System.out.println("Se no se han filtrado por plataforma de forma correcta");
+				logger.warn("Se no se han filtrado por plataforma de forma correcta");
 			
 			break;
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
 >>>>>>> origin/daniel
 			
+=======
+>>>>>>> origin/nosa
 			
 		case 0:
 			//pulsamos 0 para salir del bucle;
 			
 			System.out.println("Se ha salido correctamente del programa");
 			continuar = false;
+			break;
+			
+		default:
+			
+			//el caracter introducido no coincide
+			System.out.println("El valor introducido no coicide");
 			break;
 		}
 		

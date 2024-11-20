@@ -61,5 +61,4 @@ class ServiciosJuegosImpTest {
 		assertEquals(true, result, "El método addJuego de la capa servicio debería encargarse de agregar el Editor también si este no existe aún");
 >>>>>>> origin/daniel
 	}
-
 }
