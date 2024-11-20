@@ -2,7 +2,6 @@ package model;
 
 public class Juego {
 	
-	private int rango;
 	private String nombre;
 	private Plataforma plataforma;
 	private int anyo;
@@ -12,34 +11,15 @@ public class Juego {
 	public Juego() {
 		super();
 	}
-
-	public Juego(int rango, String nombre, Plataforma plataforma, int anyo, Genero genero, Editor editor) {
-		super();
-		this.rango = rango;
-		this.nombre = nombre;
-		this.plataforma = plataforma;
-		this.anyo = anyo;
-		this.genero = genero;
-		this.editor = editor;
-	}
-	
 	
 	//se ha puesto el juego sin rango
-	public Juego( String nombre, Plataforma plataforma, int anyo, Genero genero, Editor editor) {
+	public Juego(String nombre, Plataforma plataforma, int anyo, Genero genero, Editor editor) {
 		super();
 		this.nombre = nombre;
 		this.plataforma = plataforma;
 		this.anyo = anyo;
 		this.genero = genero;
 		this.editor = editor;
-	}
-
-	public int getRango() {
-		return rango;
-	}
-
-	public void setRango(int rango) {
-		this.rango = rango;
 	}
 
 	public String getNombre() {
@@ -84,7 +64,7 @@ public class Juego {
 
 	@Override
 	public String toString() {
-		return "Juego [rango=" + rango + ", nombre=" + nombre + ", plataforma=" + plataforma + ", anyo=" + anyo
+		return "Juego [nombre=" + nombre + ", plataforma=" + plataforma + ", anyo=" + anyo
 				+ ", genero=" + genero + "]";
 	}
 	
