@@ -21,14 +21,14 @@ public class Test {
 		
 		juegos1.setEditores(editores);
 		
-		System.out.println(juegos1.editorExite(e1));
-		System.out.println(juegos1.editorExite(e3));
-		System.out.println(juegos1.editorExite(e2));
+		System.out.println(juegos1.editorExiste(e1));
+		System.out.println(juegos1.editorExiste(e3));
+		System.out.println(juegos1.editorExiste(e2));
 		
 		editores.add(e2);
 		juegos1.setEditores(editores);
 		
-		System.out.println(juegos1.editorExite(e2));
+		System.out.println(juegos1.editorExiste(e2));
 
 	}
 }

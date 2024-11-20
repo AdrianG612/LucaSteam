@@ -44,8 +44,8 @@ public class JuegosImp implements Juegos{
 	}
 
 	@Override
-	public boolean editorExite(Editor e) {
-		if (e == null ) {
+	public boolean editorExiste(Editor e) {
+		if (e == null || editorExiste(e.getNombre())) {
 			logger.warn("El editor es nulo.");
 			return false;
 		}else
@@ -53,22 +53,37 @@ public class JuegosImp implements Juegos{
 	}
 
 	@Override
-	public boolean editorExite(String nombre) {
+	public boolean editorExiste(String nombre) {
 		if (nombre == null || nombre.isEmpty()) {
-	        logger.warn("El nombre del editor proporcionado es nulo o vacío.");
+	        logger.warn("El nombre del editor es nulo o vacío.");
 	        return false;
 	    }
 	    for (Editor editor : editores) {
-	        if (editor.getNombre().equalsIgnoreCase(nombre)) {
+	        if (editor.getNombre().equalsIgnoreCase(nombre))
 	            return true;
-	        }
 	    }
 	    return false;
 	}
 
 	@Override
 	public boolean addEditor(Editor e) {
-		// TODO Auto-generated method stub
+		//comprobar si es nulo o vacio
+		if (e == null || e.getNombre() == null || e.getNombre().isEmpty()) {
+			logger.warn("No se puede añadir un editor nulo o con nombre vacío.");
+			return false;
+	     }
+	     // Comprobar si el editor ya existe
+	     if (editorExiste(e)) {
+	    	 return false;
+	     }
+	     // Agregar el editor a la lista
+	     editores.add(e);
+	     return true;
+	}
+
+	@Override
+	public boolean addJuego(Juego j) {
+		//completarrrrr
 		return false;
 	}
 	

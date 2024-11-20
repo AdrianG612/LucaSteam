@@ -1,12 +1,15 @@
 package datos;
 
 import model.Editor;
+import model.Juego;
 
 public interface Juegos {
 
-	public boolean editorExite(Editor e);
-	public boolean editorExite(String e);
+	public boolean editorExiste(Editor e);
+	public boolean editorExiste(String e);
 	
 	public boolean addEditor(Editor e);
+	
+	public boolean addJuego(Juego j);
 	
 }
