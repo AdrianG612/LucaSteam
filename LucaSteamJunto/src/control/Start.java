@@ -36,12 +36,12 @@ public class Start {
 		switch (LeerTeclado.leerInt()) {
 		case 1:
 			
-			//en el caso 1 desde aqui se llama a cargarDatos del servicio y devuelve si se ha logrado o no
+			//en el caso 1 desde aqui se llama a cargarDatos del servicio y devuelve si se ha logrado o no .y coma
 			boolean devuelto = servicioJuego.cargarDatosFichero();
 			
 			if(devuelto)
 			{
-				System.out.println("Se han cargado los juegos coorectamente");
+				System.out.println("Se  han cargado los juegos coorectamente");
 			}
 			else
 				logger.warn("Se no se han podido cargar los usuarios correctamente");
