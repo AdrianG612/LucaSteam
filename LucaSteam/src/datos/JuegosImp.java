@@ -83,8 +83,19 @@ public class JuegosImp implements Juegos{
 
 	@Override
 	public boolean addJuego(Juego j) {
-		//completarrrrr
-		return false;
+		//comprobar que no es nulo y tiene nombre
+		if (j == null || j.getNombre() == null || j.getNombre().isEmpty()) {
+            logger.warning("No se puede añadir un juego nulo o con nombre vacío.");
+            return false;
+        }
+		//comprobar que no está ya añadido
+        if (juegos.contains(j)) {
+            logger.warning("El juego \"" + j.getNombre() + "\" ya existe.");
+            return false;
+        }
+        //agregar juego
+        juegos.add(j);
+        return true;
 	}
 	
 	@Override
