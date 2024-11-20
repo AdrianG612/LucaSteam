@@ -19,10 +19,6 @@ public interface Juegos {
 	
 	public boolean addJuego(Juego j);
 	
-<<<<<<< HEAD
-	public List<Juego> filtrarGeneroPlataforma();
-=======
 	public List<Juego> filtrarGenero(Genero genero);
->>>>>>> origin/daniel
 	
 }

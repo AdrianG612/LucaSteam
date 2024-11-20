@@ -77,10 +77,6 @@ public class Start {
 				System.out.println("Se no se han filtrado por plataforma de forma correcta");
 			
 			break;
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/daniel
 			
 			
 		case 0:

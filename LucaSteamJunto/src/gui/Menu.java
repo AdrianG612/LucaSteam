@@ -16,9 +16,6 @@ public class Menu {
 	}
 
 	public static void pintarJuego(Juego j) {
-
 		System.out.println(j);
-		
 	}
-	
 }

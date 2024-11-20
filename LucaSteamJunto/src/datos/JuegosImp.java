@@ -107,10 +107,6 @@ public class JuegosImp implements Juegos{
 			if (juego.getNombre().equalsIgnoreCase(nombre))
 			return true;
 		}
-<<<<<<< HEAD
-		
-=======
->>>>>>> origin/daniel
 		return false;
 	}
 	
@@ -131,8 +127,7 @@ public class JuegosImp implements Juegos{
 
 	@Override
 	public boolean addJuego(Juego j) {
-<<<<<<< HEAD
-=======
+
 		//comprobar juego y nombre del juego no nulos 
 		if (j == null || j.getNombre() == null || j.getNombre().isEmpty()) {
             logger.warn("No se puede añadir un juego nulo o con nombre vacío.");
@@ -144,7 +139,6 @@ public class JuegosImp implements Juegos{
             return false;
         }
         //agregar j a la lista de juegos
->>>>>>> origin/daniel
         juegos.add(j);
         return true;
 	}
@@ -166,12 +160,6 @@ public class JuegosImp implements Juegos{
 	    return lista;
 	}
 
-	@Override
-<<<<<<< HEAD
-	public List<Juego> filtrarGeneroPlataforma() {
-		// TODO Auto-generated method stub
-		return null;
-=======
 	public List<Juego> filtrarGenero(Genero genero) {
 		List<Juego> listaFiltrada = new ArrayList<Juego>();
 		if (genero != null) {
@@ -179,7 +167,7 @@ public class JuegosImp implements Juegos{
 				
 				// Comprobar en la lista los juegos que coincidan con el género parametrizado
 				
-				if (j.getGenero().getNombre().equals(genero.getNombre())) {
+				if (j.getGenero() != null && j.getGenero().getNombre().equals(genero.getNombre())) {
 					listaFiltrada.add(j);
 				}
 			}
@@ -187,7 +175,6 @@ public class JuegosImp implements Juegos{
 		}
 		
 		return listaFiltrada;
->>>>>>> origin/daniel
 	}
 	
 }
