@@ -76,7 +76,7 @@ public class ServiciosJuegosImp implements ServiciosJuegos{
 	
 	@Override
 	public boolean filtrarGeneroPlataforma() {
-		for (Juego j : juegos.filtrarGeneroPlataforma()) {
+		for (Juego j : juegos.filtrarGenero(Genero.PLATFORM)) {
 			Menu.pintarJuego(j);
 		}
 		return false;

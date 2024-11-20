@@ -4,6 +4,7 @@ package datos;
 import java.util.List;
 
 import model.Editor;
+import model.Genero;
 import model.Juego;
 
 public interface Juegos {
@@ -18,6 +19,6 @@ public interface Juegos {
 	
 	public boolean addJuego(Juego j);
 	
-	public List<Juego> filtrarGeneroPlataforma();
+	public List<Juego> filtrarGenero(Genero genero);
 	
 }

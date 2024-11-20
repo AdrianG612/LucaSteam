@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import model.Editor;
+import model.Genero;
 import model.Juego;
 
 public class JuegosImp implements Juegos{
@@ -148,9 +149,21 @@ public class JuegosImp implements Juegos{
 	}
 
 	@Override
-	public List<Juego> filtrarGeneroPlataforma() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Juego> filtrarGenero(Genero genero) {
+		List<Juego> listaFiltrada = new ArrayList<Juego>();
+		if (genero != null) {
+			for (Juego j: juegos) {
+				
+				// Comprobar en la lista los juegos que coincidan con el género parametrizado
+				
+				if (j.getGenero().getNombre().equals(genero.getNombre())) {
+					listaFiltrada.add(j);
+				}
+			}
+			logger.info("Se ha realizado un filtrado por género " + genero.getNombre() + ".");
+		}
+		
+		return listaFiltrada;
 	}
 
 	
