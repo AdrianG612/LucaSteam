@@ -22,6 +22,17 @@ public class Juego {
 		this.genero = genero;
 		this.editor = editor;
 	}
+	
+	
+	//se ha puesto el juego sin rango
+	public Juego( String nombre, Plataforma plataforma, int anyo, Genero genero, Editor editor) {
+		super();
+		this.nombre = nombre;
+		this.plataforma = plataforma;
+		this.anyo = anyo;
+		this.genero = genero;
+		this.editor = editor;
+	}
 
 	public int getRango() {
 		return rango;
