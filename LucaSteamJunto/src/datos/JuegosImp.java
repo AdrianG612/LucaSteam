@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import model.Editor;
+import model.Genero;
 import model.Juego;
 
 public class JuegosImp implements Juegos{
@@ -105,7 +106,10 @@ public class JuegosImp implements Juegos{
 			if (juego.getNombre().equalsIgnoreCase(nombre))
 				return true;
 		}
+<<<<<<< HEAD
 		
+=======
+>>>>>>> origin/daniel
 		return false;
 	}
 	
@@ -126,6 +130,20 @@ public class JuegosImp implements Juegos{
 
 	@Override
 	public boolean addJuego(Juego j) {
+<<<<<<< HEAD
+=======
+		//comprobar juego y nombre del juego no nulos 
+		if (j == null || j.getNombre() == null || j.getNombre().isEmpty()) {
+            logger.warn("No se puede añadir un juego nulo o con nombre vacío.");
+            return false;
+        }
+		//comprobar que no este ya en la lista
+        if (juegos.contains(j)) {
+            logger.warn("El juego \"" + j.getNombre() + "\" ya existe.");
+            return false;
+        }
+        //agregar j a la lista de juegos
+>>>>>>> origin/daniel
         juegos.add(j);
         return true;
 	}
@@ -138,9 +156,27 @@ public class JuegosImp implements Juegos{
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Juego> filtrarGeneroPlataforma() {
 		// TODO Auto-generated method stub
 		return null;
+=======
+	public List<Juego> filtrarGenero(Genero genero) {
+		List<Juego> listaFiltrada = new ArrayList<Juego>();
+		if (genero != null) {
+			for (Juego j: juegos) {
+				
+				// Comprobar en la lista los juegos que coincidan con el género parametrizado
+				
+				if (j.getGenero().getNombre().equals(genero.getNombre())) {
+					listaFiltrada.add(j);
+				}
+			}
+			logger.info("Se ha realizado un filtrado por género " + genero.getNombre() + ".");
+		}
+		
+		return listaFiltrada;
+>>>>>>> origin/daniel
 	}
 
 	
