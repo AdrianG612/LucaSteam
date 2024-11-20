@@ -1,6 +1,8 @@
 package control;
 
+import gui.Formulario;
 import gui.Menu;
+import model.Juego;
 import utilidades.LeerTeclado;
 import servicios.ServiciosJuegos;
 import servicios.ServiciosJuegosImp;
@@ -11,7 +13,7 @@ public class Start {
 
 	public void comenzar()
 	{
-		
+		//hacemos un bucle en el que mostraos el menu y sus opciones a elegir
 		boolean seguir = false;
 		
 		do {
@@ -24,20 +26,13 @@ public class Start {
 	
 	public boolean seleccionarOpciones()
 	{
-	
-		/*public boolean addJuego(Juego juego);
-	
-		public boolean cargarDatosFichero();
-		
-		public boolean filtrarGeneroPlataforma();*/
-			
 		boolean continuar = true;
 		
 		switch (LeerTeclado.leerInt()) {
 		case 1:
-			//falta el poder cargas los juegos del csv
 			
-			boolean devuelto = servicioJuego.addJuego(juego);
+			//en el caso 1 desde aqui se llama a cargarDatos del servicio y devuelve si se ha logrado o no
+			boolean devuelto = servicioJuego.cargarDatosFichero();
 			
 			if(devuelto)
 			{
@@ -50,22 +45,31 @@ public class Start {
 
 		case 2:
 			
-			boolean devuelto = servicioJuego.cargarDatosFichero();
+			//en el caso 2 tenemos un formulario para crear un nuevo juego el cual le pasamos al servicio
 			
-			if(devuelto)
+			Juego juego = new Juego();
+			Formulario form = new Formulario();
+			juego = form.formularioJuego();
+			
+			boolean devuelto1 = servicioJuego.addJuego(juego);
+			
+			
+			if(devuelto1)
 			{
-				System.out.println("Se han cargado los juegos coorectamente desde el ficchero");
+				System.out.println("Se han cargado los juegos correctamente desde el fichero en los datos");
 			}
 			else
-				System.out.println("Se no se han podido cargar los usuarios correctamente desde el fichero");
+				System.out.println("Se no se han podido cargar los usuarios correctamente desde el fichero en los datos");
 			
 			break;
 
 		case 3:
 			
-			boolean devuelto = servicioJuego.filtrarGeneroPlataforma();
+			//se llama al metodo filtrargenero del servicio y nos devuelve si se ha logrado o no.
 			
-			if(devuelto)
+			boolean devuelto2 = servicioJuego.filtrarGeneroPlataforma();
+			
+			if(devuelto2)
 			{
 				System.out.println("Se han filtrado por plataforma de forma correcta");
 			}
@@ -73,8 +77,15 @@ public class Start {
 				System.out.println("Se no se han filtrado por plataforma de forma correcta");
 			
 			break;
+<<<<<<< HEAD
+=======
 
+>>>>>>> origin/daniel
+			
+			
 		case 0:
+			//pulsamos 0 para salir del bucle;
+			
 			System.out.println("Se ha salido correctamente del programa");
 			continuar = false;
 			break;

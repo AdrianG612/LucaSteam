@@ -11,7 +11,7 @@ import model.Juego;
 
 public class JuegosImp implements Juegos{
 	
-	private static Logger logger = LogManager.getLogger(JuegosImp.class);
+	private static Logger logger = LogManager.getLogger(DatosJuegosImpTest.class);
 	
 	private List<Juego> juegos = new ArrayList();
 	private List<Editor> editores = new ArrayList();
@@ -44,26 +44,36 @@ public class JuegosImp implements Juegos{
 		this.editores = editores;
 	}
 
-	@Override
-	public boolean editorExiste(Editor e) {
-		if (e == null || editorExiste(e.getNombre())) {
-			logger.warn("El editor es nulo.");
-			return false;
-		}else
-			return editores.contains(e);
-	}
-
+	//metodos gestion de EDITOR
+	
 	@Override
 	public boolean editorExiste(String nombre) {
+		//comprobar string valido
 		if (nombre == null || nombre.isEmpty()) {
 	        logger.warn("El nombre del editor es nulo o vacío.");
 	        return false;
 	    }
 	    for (Editor editor : editores) {
+	    	//comprobar si esta en la lista
 	        if (editor.getNombre().equalsIgnoreCase(nombre))
-	            return true;
+	        return true;
 	    }
 	    return false;
+	}
+	
+	@Override
+	public boolean editorExiste(Editor e) {
+		//Comprobar editor no nulo
+		if (e == null ) {
+			logger.warn("El editor es nulo.");
+			return false;
+		}
+		//comprobar por nombre
+		else if (editorExiste(e.getNombre())) {
+			logger.warn("El editor "+e.getNombre()+" ya existe.");
+			return true;
+		}			
+		return editores.contains(e);
 	}
 
 	@Override
@@ -75,31 +85,89 @@ public class JuegosImp implements Juegos{
 	     }
 	     // Comprobar si el editor ya existe
 	     if (editorExiste(e)) {
+	    	 logger.warn("El editor ya está añadido.");
 	    	 return false;
 	     }
 	     // Agregar el editor a la lista
 	     editores.add(e);
 	     return true;
 	}
-
+	
+	//metodos gestion JUEGO
+	
 	@Override
-	public boolean addJuego(Juego j) {
-		//completarrrrr
+	public boolean juegoExiste(String nombre) {
+		//comprobar string valido
+		if (nombre == null || nombre.isEmpty()) {
+			logger.warn("El nombre del juego es nulo o vacío.");
+			return false;
+		}
+		//comprobar si esta en la lista
+		for (Juego juego : juegos) {
+			if (juego.getNombre().equalsIgnoreCase(nombre))
+			return true;
+		}
+<<<<<<< HEAD
+		
+=======
+>>>>>>> origin/daniel
 		return false;
 	}
 	
 	@Override
+	public boolean juegoExiste(Juego j) {
+		//comprobar juego no nulo
+		if (j == null ) {
+			logger.warn("El juego es nulo.");
+			return false;
+		}
+		//comprobar por nombre
+		else if (juegoExiste(j.getNombre())) {
+			logger.warn("El editor "+j.getNombre()+" ya existe.");
+			return true;
+		}			
+		return juegos.contains(j);
+	}
+
+	@Override
+	public boolean addJuego(Juego j) {
+<<<<<<< HEAD
+=======
+		//comprobar juego y nombre del juego no nulos 
+		if (j == null || j.getNombre() == null || j.getNombre().isEmpty()) {
+            logger.warn("No se puede añadir un juego nulo o con nombre vacío.");
+            return false;
+        }
+		//comprobar que no este ya en la lista
+        if (juegos.contains(j)) {
+            logger.warn("El juego \"" + j.getNombre() + "\" ya existe.");
+            return false;
+        }
+        //agregar j a la lista de juegos
+>>>>>>> origin/daniel
+        juegos.add(j);
+        return true;
+	}
+	
+	//OTROS
+	
+	@Override
 	public String toString() {
-		return "Juegos [juegos=" + juegos + ", editores=" + editores + "]";
+		if (juegos.isEmpty()) {
+			logger.info("No hay juegos registrados.");
+	        return "No hay juegos registrados.";
+	    }
+	    String lista="JUEGOS:\n";
+	    int contador = 1;
+	    for (Juego j : juegos) {
+	        lista+=contador+".- "+j.getNombre()+", "+j.getPlataforma()+", "+j.getAnyo()+", "+j.getGenero()+", "+j.getEditor()+".";
+	        contador++;
+	    }
+	    return lista;
 	}
 
 	@Override
-	public boolean juegoExiste(String editor) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
+<<<<<<< HEAD
 	public List<Juego> filtrarGenero(Genero genero) {
 		List<Juego> listaFiltrada = new ArrayList<Juego>();
 		for (Juego j: juegos) {
@@ -108,6 +176,29 @@ public class JuegosImp implements Juegos{
 			}
 		}
 		return listaFiltrada;
+=======
+<<<<<<< HEAD
+	public List<Juego> filtrarGeneroPlataforma() {
+		// TODO Auto-generated method stub
+		return null;
+=======
+	public List<Juego> filtrarGenero(Genero genero) {
+		List<Juego> listaFiltrada = new ArrayList<Juego>();
+		if (genero != null) {
+			for (Juego j: juegos) {
+				
+				// Comprobar en la lista los juegos que coincidan con el género parametrizado
+				
+				if (j.getGenero().getNombre().equals(genero.getNombre())) {
+					listaFiltrada.add(j);
+				}
+			}
+			logger.info("Se ha realizado un filtrado por género " + genero.getNombre() + ".");
+		}
+		
+		return listaFiltrada;
+>>>>>>> origin/daniel
+>>>>>>> ad4ac3418fa944c2145b8f78b2259734a2989eaa
 	}
 	
 }
