@@ -32,6 +32,7 @@ public enum Plataforma {
 		return nombre;
 	}
 	
+<<<<<<< HEAD
 	
 	public static Plataforma asignarEnumDesdeString(String plataformaCSV) {
 		for(Plataforma p:Plataforma.values()) 
@@ -41,4 +42,6 @@ public enum Plataforma {
 		return null;
 	}
 	
+=======
+>>>>>>> origin/daniel
 }

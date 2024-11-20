@@ -24,6 +24,7 @@ public enum Genero {
 		return nombre;
 	}
 	
+<<<<<<< HEAD
 	public static Genero asignarEnumDesdeString(String generoCSV) {
 		for(Genero g:Genero.values()) 
 			if(g.name().equalsIgnoreCase(generoCSV)) 
@@ -32,4 +33,6 @@ public enum Genero {
 		return null;
 	}
 	
+=======
+>>>>>>> origin/daniel
 }
