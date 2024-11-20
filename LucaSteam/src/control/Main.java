@@ -6,6 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 		ServiciosJuegosImp s = new ServiciosJuegosImp();
@@ -18,6 +19,11 @@ public class Main {
 =======
 		Test.pruebaExisteEditor();
 >>>>>>> origin/patricia
+=======
+		
+		new Start().comenzar();
+		
+>>>>>>> origin/nosa
 	}
 
 }
