@@ -8,6 +8,6 @@ public interface ServiciosJuegos {
 	
 	public boolean addJuego(Juego juego);
 
-	boolean filtrarGeneroPlataforma();
+	boolean filtrarGeneroPlataformas();
 
 }

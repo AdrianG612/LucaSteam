@@ -6,14 +6,15 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import model.Editor;
+import model.Genero;
 import model.Juego;
 
 public class JuegosImp implements Juegos{
 	
 	private static Logger logger = LogManager.getLogger(JuegosImp.class);
 	
-	private List<Juego> juegos=new ArrayList();
-	private List<Editor> editores=new ArrayList();
+	private List<Juego> juegos = new ArrayList();
+	private List<Editor> editores = new ArrayList();
 	
 	public JuegosImp() {
 		super();
@@ -99,9 +100,14 @@ public class JuegosImp implements Juegos{
 	}
 
 	@Override
-	public List<Juego> filtrarGeneroPlataforma() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Juego> filtrarGenero(Genero genero) {
+		List<Juego> listaFiltrada = new ArrayList<Juego>();
+		for (Juego j: juegos) {
+			if (j.getGenero().getNombre().equals(genero.getNombre())) {
+				listaFiltrada.add(j);
+			}
+		}
+		return listaFiltrada;
 	}
 	
 }
