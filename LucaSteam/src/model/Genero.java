@@ -24,4 +24,12 @@ public enum Genero {
 		return nombre;
 	}
 	
+	public static Genero asignarEnumDesdeString(String generoCSV) {
+		for(Genero g:Genero.values()) 
+			if(g.name().equalsIgnoreCase(generoCSV)) 
+				return g;
+			
+		return null;
+	}
+	
 }
