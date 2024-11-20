@@ -64,8 +64,13 @@ public class Juego {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "Juego [nombre=" + nombre + ", plataforma=" + plataforma + ", anyo=" + anyo
 				+ ", genero=" + genero + "]";
+=======
+		return "Juego: " +nombre+ ", plataforma= " + plataforma + ", anyo= " + anyo
+				+ ", genero= " + genero;
+>>>>>>> origin/patricia
 	}
 	
 	
